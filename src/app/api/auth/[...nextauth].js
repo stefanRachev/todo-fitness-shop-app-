@@ -4,7 +4,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
-import clientPromise from "../../../lib/mongodb"; // връзка към MongoDB
+import clientPromise from "../../../lib/mongodb";
 
 export default NextAuth({
   providers: [
@@ -15,7 +15,7 @@ export default NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        // Логика за автентикация
+      
         const user = await fetchUserFromDatabase(credentials.email, credentials.password);
         if (user) {
           return user;
