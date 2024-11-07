@@ -39,7 +39,7 @@ export default function Header() {
           Пазаруване
         </Link>
 
-        {/* Линкове за логин/регистрация или лог аут в зависимост от състоянието на user */}
+      
         {user ? (
           <>
             <Link href="/profile" className="hover:text-gray-400">
