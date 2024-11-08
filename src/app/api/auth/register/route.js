@@ -24,6 +24,13 @@ export async function POST(req) {
       );
     }
 
+    if (password.length < 6) {
+      return new Response(
+        JSON.stringify({ message: "Паролата трябва да е поне 6 знака" }),
+        { status: 400 }
+      );
+    }
+
     const newUser = await User.create({ email, password });
 
     return new Response(
